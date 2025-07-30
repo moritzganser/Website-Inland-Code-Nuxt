@@ -1,9 +1,7 @@
 <template>
     <Header />
     <main>
-      <Uebersicht />
-      <Angebot />
-      <Daten />
+      <slot />
     </main>
     <Footer />
 </template>
