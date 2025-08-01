@@ -1,13 +1,12 @@
 <template>
-  <div class="max-w-screen h-[1800px] bg-gradient-to-r from-black to-[#002983]">
+  <div class="max-w-screen xl:h-[1800px] h-[2300px] bg-gradient-to-r from-black to-[#002983]">
     <div id="header_background">
-      <div id="navbar">
+      <div id="navbar" class="fixed top-0 w-full z-50 bg-gray-900">
         <p id="navbar_headline_txt">{{ navbar_headline_js }}</p>
         <button id="navbar_home_button">Home</button>
-        <button 
-        class="navbar_button" onclick="">Dienstleistungen <img class="navbar_pfeil" src="../public/images/pfeil_nach_unten.png"></img></button>
-        <button class="navbar_button" onclick="">Über Mich <img class="navbar_pfeil" src="../public/images/pfeil_nach_unten.png"></img></button>
-        <button class="navbar_button" onclick="">Kontaktdaten <img class="navbar_pfeil" src="../public/images/pfeil_nach_unten.png"></img></button>
+        <button class="navbar_button" @click="scrollToDienstleistung">Dienstleistungen<img class="navbar_pfeil" src="../public/images/pfeil_nach_unten.png"></button>
+        <button class="navbar_button" @click="scrollToUeberMich">Über Mich<img class="navbar_pfeil" src="../public/images/pfeil_nach_unten.png"></button>
+        <button class="navbar_button" @click="scrollToKontakte">Kontakte<img class="navbar_pfeil" src="../public/images/pfeil_nach_unten.png"></button>
       </div>
       <div id="header_content">
         <div id="header_content_oben">
@@ -16,7 +15,7 @@
             <h2 id="typewriter"></h2>
           </div>
         </div>
-        <div class="w-2/3 mt-48">
+        <div class="w-2/3 mt-[250px] xl:mt-[50px]">
             <laptop class="mt-24 mb-24 w-[100vw]"/>
           </div>
           
@@ -57,13 +56,14 @@
     display: flex;
     justify-content: left;
     align-items: baseline;
-    padding-top: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
   }
   #navbar_headline_txt{
     color: white;
     font-weight: bold;
     padding-right: 75px;
-    padding-left: 500px;
+    padding-left: 50px;
     white-space: pre-line;
     line-height: 1.1;
   }
@@ -106,11 +106,11 @@
   }
   #schreibmaschine{
     color: white;
-    font-size: 75px;
+    font-size: 100px;
     font-weight: bold;
-    padding: 100px;
     padding-top: 0;
     padding-right: 500px;
+    margin-bottom: 150px;
   }
   #header_content_oben_txt{
     display: flex;
@@ -771,6 +771,14 @@
       box-shadow: 0 0 20px white, 0 0 30px white;
       transition: box-shadow 0.3s ease-in-out;
     }
+    #schreibmaschine{
+      color: white;
+      font-size: 75px;
+      font-weight: bold;
+      padding: 100px;
+      padding-top: 0;
+      padding-right: 300px;
+    }
     .scroll-fade {
       opacity: 0;
       transform: translateY(50px);
@@ -972,9 +980,31 @@
 </style>
 
 <script setup>
+  //Smooth scrolling buttons
+  function scrollToDienstleistung() {
+    const target = document.getElementById("dienstleistungen_ziel");
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+      history.replaceState(null, null, ' ');
+    }
+  }
+  function scrollToUeberMich() {
+    const target = document.getElementById("uebermich_ziel");
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+      history.replaceState(null, null, ' ');
+    }
+  }
+  function scrollToKontakte() {
+    const target = document.getElementById("kontakte_ziel");
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+      history.replaceState(null, null, ' ');
+    }
+  }
 
 
-  const navbar_headline_js = ref('<Inland \n Code>')
+  const navbar_headline_js = ref('<Inland Code>')
 
   const showSinglepack = ref(false)
 

@@ -1,2 +1,4 @@
 <template>
+    <Angebot />
+    <Uebermich />
 </template>
