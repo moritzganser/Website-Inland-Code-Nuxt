@@ -55,7 +55,7 @@
                   </li>
               </ul>
               <p class="mb-[25px] font-light text-gray-500 sm:text-lg dark:text-gray-400">1. Sie schreiben mir eine Email mit Ihrer Idee oder Zielsetzung.<br>2. Gemeinsam definieren wir die Inhalte. <br>3. Ich erstelle Ihre persönliche Unternehmensseite – professionell, schlicht und auf den Punkt.</p>
-              <a href="" class="flex justify-center items-end border-white border-[3px] text-white bg-primary-600  font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white  dark:focus:ring-primary-900">Get started<img class="navbar_pfeil" src="../public/images/pfeil_nach_unten.png"></img></a>
+              <a class="flex justify-center items-end cursor-pointer border-white border-[3px] text-white bg-primary-600  font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white  dark:focus:ring-primary-900" @click="scrollToKontakte">Get started<img class="navbar_pfeil" src="../public/images/pfeil_nach_unten.png"></img></a>
           </div>
         
       </div>
@@ -64,3 +64,13 @@
         </div>
     </div>
 </template>
+
+<script setup>
+  function scrollToKontakte() {
+    const target = document.getElementById("kontakte_ziel");
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+      history.replaceState(null, null, ' ');
+    }
+  }
+</script>
