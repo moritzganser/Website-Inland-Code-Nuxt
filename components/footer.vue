@@ -10,7 +10,7 @@
             <a href="../pages/index.vue" class="flex items-center pb-[15px]">
               <p class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">{{ navbar_headline_js_footer }}</p>
             </a>
-            <p class="text-white text-[15px] w-[550px]">
+            <p class="footer_text text-white text-[15px] w-[550px]">
               Ich gestalte Ihnen eine Website, die auf den ersten Blick überzeugt.
               Sie ist übersichtlich, benutzerfreundlich und auf Ihre Wünsche abgestimmt.
               Ihre Kunden finden schnell, was sie suchen – und Sie gewinnen Vertrauen.
@@ -53,6 +53,14 @@
       </div>
     </footer>
   </template>
+  
+<style>
+@media (max-width: 639px){
+  .footer_text{
+    width: 250px;
+}
+}
+</style>
   
   <script setup>
   const navbar_headline_js_footer = ref('<Inland Code>')

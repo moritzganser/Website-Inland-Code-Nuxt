@@ -1,44 +1,63 @@
 <template>
-  <div class="max-w-screen xl:h-[1800px] h-[2300px] bg-gradient-to-r from-black to-[#002983]">
+   <div class="max-w-screen xl:h-[1800px] md:h-[2400px] lg:h-[1800px] h-[2300px] bg-gradient-to-r from-black to-[#002983]">
     <div id="header_background">
-      <div id="navbar" class="fixed top-0 w-full z-50 bg-gray-900">
+      <div id="navbar" class="fixed top-0 w-full z-50 bg-gray-900 flex items-baseline sm:justify-between px-6 py-2">
         <p id="navbar_headline_txt">{{ navbar_headline_js }}</p>
-        <button id="navbar_home_button">Home</button>
-        <button class="navbar_button" @click="scrollToDienstleistung">Dienstleistungen<img class="navbar_pfeil" src="../public/images/pfeil_nach_unten.png"></button>
-        <button class="navbar_button" @click="scrollToUeberMich">Über Mich<img class="navbar_pfeil" src="../public/images/pfeil_nach_unten.png"></button>
-        <button class="navbar_button" @click="scrollToKontakte">Kontakte<img class="navbar_pfeil" src="../public/images/pfeil_nach_unten.png"></button>
+
+        <!-- Desktop Navigation (nur sichtbar ab sm und größer) -->
+        <div class="hidden sm:flex space-x-4">
+          <button id="navbar_home_button">Home</button>
+          <button class="navbar_button" @click="scrollToDienstleistung">Dienstleistungen<img class="navbar_pfeil" src="../public/images/pfeil_nach_unten.png"></button>
+          <button class="navbar_button" @click="scrollToUeberMich">Über Mich<img class="navbar_pfeil" src="../public/images/pfeil_nach_unten.png"></button>
+          <button class="navbar_button" @click="scrollToKontakte">Kontakte<img class="navbar_pfeil" src="../public/images/pfeil_nach_unten.png"></button>
+        </div>
+
+        <!-- Mobile Dropdown Button (nur unter sm sichtbar) -->
+        <button class="block sm:hidden ml-auto align-baseline text-white text-3xl" @click="isDropdownOpen = !isDropdownOpen">
+          ☰
+        </button>
       </div>
+
+      <!-- Mobile Dropdown Menu (nur unter sm sichtbar) -->
+      <transition name="fade">
+        <div v-if="isDropdownOpen" class="sm:hidden fixed top-[50px] w-full bg-gray-900 text-white flex flex-col items-end px-6 py-4 space-y-2 z-40">
+          <button @click="handleMobileNav(scrollToDienstleistung)">Dienstleistungen</button>
+          <button @click="handleMobileNav(scrollToUeberMich)">Über Mich</button>
+          <button @click="handleMobileNav(scrollToKontakte)">Kontakte</button>
+        </div>
+      </transition>
+
       <div id="header_content">
         <div id="header_content_oben">
           <div id="schreibmaschine">
-            <p id="schreibmaschine_txt">Ihre Website.</p>
-            <h2 id="typewriter"></h2>
+            <p id="schreibmaschine_txt" class="md:text-[50px] sm:text-[40px] md:w-[350px] sm:w-[250px]">Ihre Website.</p>
+            <h2 id="typewriter" class="md:text-[50px] sm:text-[40px]"></h2>
           </div>
         </div>
-        <div class="w-2/3 mt-[250px] xl:mt-[50px]">
-            <laptop class="mt-24 mb-24 w-[100vw]"/>
-          </div>
-          
-          <div id=header_infos>
-            <p id=header_infos_first_headline>Das zeichnet meine Internetseiten aus:</p>
-            <div id=header_infos_container>
-              <div class="scroll-fade">
-                <p class=header_infos_headline>Übersichtlich & Einfach</p>
-                <p class=header_infos_txt>Ich gestalte Internetseiten, die Ihre Besucher intuitiv durch Ihre Inhalte führen. So finden sich Ihre Kunden schnell zurecht und bekommen genau das, was sie suchen – ohne Umwege.</p>
-              </div>
-              <div class="scroll-fade">
-                <p class=header_infos_headline>Schön & Ansprechend</p>
-                <p class=header_infos_txt>Mit einem modernen, ästhetischen Look mache ich Ihre Website zum Hingucker. Harmonische Farben, stimmige Typografie und ein durchdachtes Layout sorgen für einen professionellen Auftritt, der im Gedächtnis bleibt.</p>
-              </div>
-              <div class="scroll-fade">
-                <p class=header_infos_headline>Ideale Lösungen</p>
-                <p class=header_infos_txt>Ich programmiere nicht nur einfach Internetseiten, sondern entwickeln individuelle Online-Erlebnisse, die perfekt zu Ihrer Marke und Ihren Zielen passen. So heben Sie sich klar von der Konkurrenz ab.</p>
-              </div>
+        <div class="laptop_höhe w-2/3 mt-[250px] sm:mt-[25px] md:mt-[50px] lg:mt-[100px] xl:mt-[50px]">
+          <laptop class="mt-24 mb-24 w-[100vw]" />
+        </div>
+
+        <div id="header_infos">
+          <p id="header_infos_first_headline">Das zeichnet meine Internetseiten aus:</p>
+          <div id="header_infos_container">
+            <div class="scroll-fade">
+              <p class="header_infos_headline">Übersichtlich & Einfach</p>
+              <p class="header_infos_txt">Ich gestalte Internetseiten, die Ihre Besucher intuitiv durch Ihre Inhalte führen. So finden sich Ihre Kunden schnell zurecht und bekommen genau das, was sie suchen – ohne Umwege.</p>
             </div>
-          </div> 
+            <div class="scroll-fade">
+              <p class="header_infos_headline">Schön & Ansprechend</p>
+              <p class="header_infos_txt">Mit einem modernen, ästhetischen Look mache ich Ihre Website zum Hingucker. Harmonische Farben, stimmige Typografie und ein durchdachtes Layout sorgen für einen professionellen Auftritt, der im Gedächtnis bleibt.</p>
+            </div>
+            <div class="scroll-fade">
+              <p class="header_infos_headline">Ideale Lösungen</p>
+              <p class="header_infos_txt">Ich programmiere nicht nur einfach Internetseiten, sondern entwickle individuelle Online-Erlebnisse, die perfekt zu Ihrer Marke und Ihren Zielen passen. So heben Sie sich klar von der Konkurrenz ab.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+  </div>
 </template>
 
 <style>
@@ -977,6 +996,94 @@
       color: transparent;
     }
   }
+
+  @media (min-width: 1024px){
+    .scroll-fade {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease-out;
+      padding: 25px;
+      padding-top: 30px;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+  .scroll-fade {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
+    padding-top: 25px;
+  }
+
+  #header_infos_container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+
+  @media (min-width: 640px) and (max-width: 767px) {
+    .scroll-fade {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease-out;
+      padding-top: 25px;
+    }
+
+    #header_infos_container{
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  @media (max-width: 740px){
+    .navbar_button{
+      font-size: 12px;
+      padding: 0;
+    }
+    #navbar_home_button{
+      font-size: 12px;
+      padding: 0;
+    }
+    #navbar_headline_txt{
+      font-size: 20px;
+    }
+  }
+
+  @media (max-width: 639px) {
+    #schreibmaschine{
+      font-size: 20px;
+    }
+    .scroll-fade {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease-out;
+      padding-top: 25px;
+    }
+
+    #header_infos_container{
+      display: flex;
+      flex-direction: column;
+    }
+    .laptop_höhe{
+      margin-top: 15px;
+    }
+    #header_infos_first_headline{
+    display:flex;
+    text-align: center;
+    font-size:35px;
+    color: white;
+    padding-bottom: 50px;
+    }
+    #schreibmaschine{
+      padding: 0;
+      font-size: 30px;
+    }
+    #header_content_oben{
+      justify-content: left;
+      padding-left: 15px;
+    }
+  }
 </style>
 
 <script setup>
@@ -1062,4 +1169,73 @@ onMounted(() => {
     observer.observe(el);
   });
 });
+
+
+const isDropdownOpen = ref(false)
+
+
+function handleMobileNav(scrollFn) {
+  scrollFn()
+  isDropdownOpen.value = false
+}
+
+onMounted(() => {
+  // Schreibmaschine
+  const text = "Unser Code. Ihr Erfolg."
+  const speed = 150
+  const pause = 2000
+  let i = 0
+  let deleting = false
+
+  function typeWriter() {
+    const element = document.getElementById("typewriter")
+    if (!element) return
+
+    if (!deleting) {
+      element.innerHTML = text.substring(0, i + 1)
+      i++
+      if (i === text.length) {
+        setTimeout(() => {
+          deleting = true
+          typeWriter()
+        }, pause)
+        return
+      }
+    } else {
+      element.innerHTML = text.substring(0, i - 1)
+      i--
+      if (i === 0) {
+        deleting = false
+      }
+    }
+    setTimeout(typeWriter, speed)
+  }
+  typeWriter()
+
+  // Scroll Fade Effekt
+  const fadeElements = document.querySelectorAll(".scroll-fade")
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible")
+      } else {
+        entry.target.classList.remove("visible")
+      }
+    })
+  }, { threshold: 0.1 })
+
+  fadeElements.forEach(el => {
+    observer.observe(el)
+  })
+})
 </script>
+
+<style scoped>
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
+}
+</style>
+

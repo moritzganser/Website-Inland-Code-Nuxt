@@ -1,2 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import "tailwindcss";
+
+html, body {
+    overflow-x: hidden; /* Kein horizontales Scrollen */
+    margin: 0;
+    padding: 0;
+  }
+  
+
+* {
+    user-select: none;        /* Kein Text markieren */
+    -webkit-user-drag: none;  /* Kein Drag auf Bildern */
+    -webkit-tap-highlight-color: transparent; /* Kein Touch-Markierung auf iOS */
+  }
