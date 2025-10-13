@@ -3,37 +3,33 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineNuxtConfig({
   ssr: false, // Statischer Modus
 
-  modules: ['@nuxtjs/google-fonts', '@nuxt/fonts'],
+  modules: ["@nuxtjs/google-fonts", "@nuxt/fonts"],
 
   googleFonts: {
     families: {
       Roboto: [400, 700],
-      'Open+Sans': true,
+      "Open+Sans": true,
     },
-    display: 'swap',
+    display: "swap",
     preload: true,
   },
 
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
-  css: ['~/assets/css/main.css'],
+  css: ["~/assets/css/main.css"],
 
   vite: {
-    plugins: [
-      tailwindcss(),
-    ],
+    plugins: [tailwindcss()],
   },
 
   app: {
     head: {
       meta: [
-        { name: 'viewport', content: 'width=device-width, initial-scale=1.0' }
+        { name: "viewport", content: "width=device-width, initial-scale=1.0" },
       ],
-      link: [
-        { rel: 'icon', type: 'image/png', href: '/images/Favicon.png' } // Dein Favicon
-      ]
-    }
+      link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+    },
   },
 
-  components: true
+  components: true,
 });
