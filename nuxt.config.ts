@@ -1,7 +1,7 @@
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineNuxtConfig({
-  ssr: false, // Statischer Modus
+  ssr: true,
 
   modules: ["@nuxtjs/google-fonts", "@nuxt/fonts"],
 
@@ -25,9 +25,19 @@ export default defineNuxtConfig({
   app: {
     head: {
       meta: [
-        { name: "viewport", content: "width=device-width, initial-scale=1.0" },
+        {
+          name: "google-site-verification",
+          content: "ca-pub-3037002420549432",
+        },
       ],
       link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+      script: [
+        {
+          async: true,
+          src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3037002420549432",
+          crossorigin: "anonymous",
+        },
+      ],
     },
   },
 

@@ -44,44 +44,58 @@
           </p>
         </div>
       </div>
+     
+<div class="flex justify-center">
+  <p class="text-white text-[50px] font-bold mb-[50px] mt-[250px]">Kontakte</p>
+</div>
 
-      <!-- Kontaktbereich -->
-      <div
-        class="unten_main flex flex-col items-center text-white pb-[200px] pt-[250px] xl:pt-[150px] md:pt-[100px] sm:pt-[50px] max-w-[1144px] mx-auto"
-      >
-        <div id="kontakte_ziel"></div>
-        <p
-          class="main_headline font-bold text-[20px] md:text-[25px] lg:text-[30px] xl:text-[45px] mt-[50px] pt-[150px] pb-[15px]"
-        >
-          Kontaktdaten
-        </p>
-        <div class="flex items-center">
-          <img
-            class="w-[64px] h-[64px] mr-[25px]"
-            src="../public/images/postfach_weiß.png"
-            alt="Postfach"
-          />
-          <a
-            class="text-[25px] font-bold text-purple-700"
-            href="mailto:info@inlandcode.de"
-            >info@inlandcode.de</a
-          >
-        </div>
-        <p
-          class="main_text_2 text-[15px] md:text-[30px] md:w-[950px] sm:w-[350px] text-center max-w-[650px] pt-[100px]"
-        >
+      <section class="w-full py-20 mt-0 pt-0">
+  <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+
+    <!-- Left Text -->
+    <div>
+      <h2 class="text-4xl font-bold text-white mb-4">
+        Ich bin hier, um Ihre Firma online sichtbar zu machen.
+      </h2>
+      <p class="text-white mb-8">
+        Ihre Website. Unser Code. Ihr Erfolg.
+      </p>
+
+      <!-- Öffnungszeiten Box -->
+      <div class="bg-purple-700 text-white p-6 rounded-2xl w-full max-w-sm">
+        <p>
           Sie haben Fragen oder möchten eine neue oder die erste Internetseite
           für Ihr Unternehmen umsetzen lassen? Dann schreiben Sie mich gerne
-          direkt per E-Mail an:
-          <a class="text-purple-700 font-bold" href="mailto:info@inlandcode.de"
-            >info@inlandcode.de</a
-          >
-          oder Sie klicken oben auf den Link. Ich freue mich auf Ihre Nachricht
+          direkt per E-Mail an. Ich freue mich auf Ihre Nachricht
           und antworte Ihnen zeitnah.
         </p>
       </div>
     </div>
+
+    <!-- Kontaktbereich (ohne Formular) -->
+    <div class="bg-gray-100 p-8 rounded-2xl shadow-sm">
+      <h3 class="text-xl font-semibold mb-6 text-black">Kontaktdaten</h3>
+
+      <div class="space-y-4 text-gray-700">
+        <p><span class="font-medium text-black">Name:</span> Moritz Ganser - Inland Code</p>
+        <p><span class="font-medium text-black">E-Mail:</span> info@inlandcode.de</p>
+      </div>
+
+      <!-- Email Button -->
+      <a 
+        href="mailto:info@inlandcode.de"
+        class="mt-6 inline-block bg-purple-700 text-white font-medium py-3 px-6 rounded-full hover:bg-purple-900 transition">
+        E-Mail senden
+      </a>
+    </div>
+
   </div>
+</section>
+
+    </div>
+  </div>
+
+  
 </template>
 
 <style scoped>
