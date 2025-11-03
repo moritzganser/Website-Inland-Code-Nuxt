@@ -7,27 +7,26 @@
         class="hauptklasse flex flex-col xl:flex-row pt-[250px] justify-center items-center xl:items-start gap-[50px]"
       >
         <!-- Bild -->
-        <div class="flex justify-center">
-          <img
-            class="main_images rounded-[50px] w-[250px] xl:w-[300px] mb-[50px] xl:mb-0"
-            src="../public/images/ich.jpeg"
-            alt="Bild von Moritz"
-          />
-        </div>
+<!-- Bild -->
+<div 
+  class="flex justify-center opacity-0 translate-x-[-80px] transition-all duration-[900ms] ease-out img-anim"
+>
+  <img
+    class="main_images rounded-[50px] w-[250px] xl:w-[300px] mb-[50px] xl:mb-0"
+    src="../public/images/Profilbild.png"
+    alt="Bild von Moritz"
+  />
+</div>
 
-        <!-- Text rechts daneben bei XL -->
-        <div
-          class="main_links flex flex-col items-center xl:items-start text-center xl:text-left"
-        >
-          <p
-            class="main_headline font-bold text-white text-[20px] xl:text-[35px] mb-[20px]"
-          >
-            Über Mich
-          </p>
-          <p
-            class="main_text text-white text-[15px] xl:text-[20px] max-w-[700px]"
-          >
-            Ich bin Moritz – Gründer von Inland Code, einem jungen Unternehmen
+<!-- Text -->
+<div 
+  class="main_links flex flex-col items-center xl:items-start text-center xl:text-left opacity-0 translate-x-[80px] transition-all duration-[900ms] ease-out text-anim"
+>
+  <p class="main_headline font-bold text-white text-[20px] xl:text-[35px] mb-[20px]">
+    Über Mich
+  </p>
+  <p class="main_text text-white text-[15px] xl:text-[20px] max-w-[700px]">
+    Ich bin Moritz – Gründer von Inland Code, einem jungen Unternehmen
             mit klarem Fokus: maßgeschneiderte Internetseiten für Unternehmen,
             die nicht nur gut aussehen, sondern vor allem Ergebnisse liefern.
             Schon in jungen Jahren habe ich meine Leidenschaft fürs
@@ -41,15 +40,16 @@
             zielgerichtet.
             <br /><br />Ich weiß, dass der erste Eindruck zählt – und dieser
             findet heutzutage meist digital statt.
-          </p>
-        </div>
+  </p>
+</div>
+
       </div>
      
 <div class="flex justify-center">
-  <p class="text-white text-[50px] font-bold mb-[50px] mt-[250px]">Kontakte</p>
+  <p class="text-white text-[50px] font-bold mb-[50px] pt-[400px]">Kontakte</p>
 </div>
 <div id="kontakte_ziel"></div>
-      <section class="w-full py-20 mt-0 pt-0 pb-[250px]">
+      <section class="w-full py-20 mt-0 pt-0 pb-[400px]">
   <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
 
     <!-- Left Text -->
@@ -62,7 +62,7 @@
       </p>
 
       <!-- Öffnungszeiten Box -->
-      <div class="bg-purple-700 text-white p-6 rounded-2xl w-full max-w-sm">
+      <div class="bg-purple-700 text-white font-bold p-6 rounded-2xl w-full max-w-sm">
         <p>
           Sie haben Fragen oder möchten eine neue oder die erste Internetseite
           für Ihr Unternehmen umsetzen lassen? Dann schreiben Sie mich gerne
@@ -77,7 +77,6 @@
       <h3 class="text-xl font-semibold mb-6 text-black">Kontaktdaten</h3>
 
       <div class="space-y-4 text-gray-700">
-        <p><span class="font-medium text-black">Name:</span> Moritz Ganser - Inland Code</p>
         <p><span class="font-medium text-black">E-Mail:</span> info@inlandcode.de</p>
       </div>
 
@@ -138,3 +137,42 @@
   }
 }
 </style>
+
+<script>
+export default {
+  mounted() {
+    const img = document.querySelector('.img-anim');
+    const text = document.querySelector('.text-anim');
+
+    const resetAnimation = (el, direction) => {
+      el.classList.add('opacity-0');
+      el.classList.add(direction === 'left' ? 'translate-x-[-80px]' : 'translate-x-[80px]');
+      el.classList.remove('translate-x-0');
+    };
+
+    // Startzustand setzen
+    resetAnimation(img, 'left');
+    resetAnimation(text, 'right');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const el = entry.target;
+        const isLeft = el.classList.contains('img-anim');
+
+        if (entry.isIntersecting) {
+          // Sichtbar -> Animation starten
+          el.classList.remove('opacity-0');
+          el.classList.remove(isLeft ? 'translate-x-[-80px]' : 'translate-x-[80px]');
+          el.classList.add('translate-x-0');
+        } else {
+          // Unsichtbar -> Animation zurücksetzen (damit erneut ausgelöst werden kann)
+          resetAnimation(el, isLeft ? 'left' : 'right');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    observer.observe(img);
+    observer.observe(text);
+  },
+};
+</script>

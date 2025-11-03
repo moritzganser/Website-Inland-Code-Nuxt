@@ -7,7 +7,7 @@
           
           <!-- Linker Block -->
           <div class="mb-6 md:mb-0">
-            <a href="../pages/index.vue" class="flex items-center pb-[15px]">
+            <a href="https://inlandcode.de" class="flex items-center pb-[15px]">
               <p class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">{{ navbar_headline_js_footer }}</p>
             </a>
             <p class="footer_text text-white text-[15px] w-[550px]">
@@ -43,10 +43,10 @@
   
           <div class="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
             <a href="mailto:info@inlandcode.de" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
-              <img class="w-7 h-7" src="../public/images/postfach_weiß.png" alt="E-Mail" />
+              Email
             </a>
             <a href="https://www.instagram.com/inlandcode_web" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
-              <img class="w-7 h-7" src="../public/images/insta_weiß.png" alt="Instagram" />
+              Instagram
             </a>
           </div>
         </div>

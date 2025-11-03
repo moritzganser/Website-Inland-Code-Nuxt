@@ -6,7 +6,6 @@
 
         <!-- Desktop Navigation (nur sichtbar ab sm und größer) -->
         <div class="hidden sm:flex space-x-4">
-          <button id="navbar_home_button">Home</button>
           <button class="navbar_button" @click="scrollToDienstleistung">Dienstleistungen<img class="navbar_pfeil" src="../public/images/pfeil_nach_unten.png"></button>
           <button class="navbar_button" @click="scrollToUeberMich">Über Mich<img class="navbar_pfeil" src="../public/images/pfeil_nach_unten.png"></button>
           <button class="navbar_button" @click="scrollToKontakte">Kontakte<img class="navbar_pfeil" src="../public/images/pfeil_nach_unten.png"></button>
@@ -27,13 +26,30 @@
         </div>
       </transition>
 
-      <div id="header_content">
-        <div id="header_content_oben">
-          <div id="schreibmaschine">
-            <p id="schreibmaschine_txt" class="md:text-[50px] sm:text-[40px] md:w-[350px] sm:w-[250px]">Ihre Website.</p>
-            <h2 id="typewriter" class="md:text-[50px] sm:text-[40px]"></h2>
-          </div>
-        </div>
+      <div>
+        <div class="w-full flex flex-col items-center justify-center text-center py-[200px]">
+
+<!-- Statischer Text -->
+<p class="font-light text-white text-[clamp(30px,6vw,60px)] whitespace-nowrap">
+  Ihre Website.
+</p>
+
+<!-- Schreibmaschine Wrapper (Höhe fix) -->
+<div class="relative">
+  <!-- Unsichtbarer Text-Platzhalter -->
+  <h2 class="text-white font-bold text-[clamp(28px,6vw,60px)] opacity-0 whitespace-nowrap">
+    Unser Code. Ihr Erfolg.
+  </h2>
+
+  <!-- Sichtbarer Schreibmaschinen-Text -->
+  <h2 id="typewriter"
+      class="absolute top-0 left-0 text-white font-bold text-[clamp(28px,6vw,60px)] whitespace-nowrap border-r-4 border-white">
+  </h2>
+</div>
+</div>
+
+
+
         <div class="laptop_höhe w-2/3 mt-[250px] sm:mt-[25px] md:mt-[50px] lg:mt-[100px] xl:mt-[50px]">
           <laptop class="mt-24 mb-24 w-[100vw]" />
         </div>
@@ -119,10 +135,10 @@
     display: flex;
     justify-content: center;
   }
-  #typewriter{
-    position: absolute;
-    border-right: 8px solid white;
-  }
+  #typewriter {
+  border-right: 6px solid white;
+}
+
   #schreibmaschine{
     color: white;
     font-size: 100px;
@@ -136,7 +152,7 @@
     align-items: baseline;
     color: white;
     font-size: 30px;
-    width: 650px;
+
   }
   .horizontale-line {
     position: relative;
@@ -1116,39 +1132,39 @@
   const showSinglepack = ref(false)
 
 onMounted(() => {
-//Schreibmaschine
   const text = "Unser Code. Ihr Erfolg.";
-  const speed = 150;
-  const pause = 2000;
-  let i = 0;
-  let deleting = false;
+const speed = 150;
+const pause = 2000;
+let i = 0;
+let deleting = false;
 
-  function typeWriter() {
-    const element = document.getElementById("typewriter");
-    if (!element) return;
+function typeWriter() {
+  const element = document.getElementById("typewriter");
+  if (!element) return;
 
-    if (!deleting) {
-      element.innerHTML = text.substring(0, i + 1);
-      i++;
-      if (i === text.length) {
-        setTimeout(() => {
-          deleting = true;
-          typeWriter();
-        }, pause);
-        return;
-      }
-    } else {
-      element.innerHTML = text.substring(0, i - 1);
-      i--;
-      if (i === 0) {
-        deleting = false;
-      }
+  if (!deleting) {
+    element.textContent = text.substring(0, i + 1);
+    i++;
+    if (i === text.length) {
+      setTimeout(() => {
+        deleting = true;
+        typeWriter();
+      }, pause);
+      return;
     }
-
-    setTimeout(typeWriter, speed);
+  } else {
+    element.textContent = text.substring(0, i - 1);
+    i--;
+    if (i === 0) {
+      deleting = false;
+    }
   }
 
-  typeWriter();
+  setTimeout(typeWriter, speed);
+}
+
+typeWriter();
+
 
 //Scrolleffekt Smooth
   const fadeElements = document.querySelectorAll(".scroll-fade");

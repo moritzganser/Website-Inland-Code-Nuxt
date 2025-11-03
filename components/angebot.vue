@@ -80,56 +80,6 @@
             </div>
           </div>
         </div>
-
-        <div class="flex justify-center p-[50px]">
-          <p class="text-white font-extrabold text-3xl">
-            Weitere Projekte von Inland Code:
-          </p>
-        </div>
-
-        <div
-          class="relative bg-gradient-to-r from-black to-yellow-400 text-white overflow-hidden min-h-[200px] py-10"
-        >
-          <div
-            class="absolute inset-0 bg-[url('/images/Muster.png')] bg-repeat opacity-20 z-0"
-          ></div>
-
-          <div class="relative z-10 text-center md:text-left">
-            <p
-              class="text-[40px] md:text-[50px] font-extrabold pl-0 md:pl-[75px]"
-            >
-              The Beacon
-            </p>
-
-            <div
-              class="flex flex-col md:flex-row justify-between items-center md:items-start gap-6 text-[18px] md:text-[25px] font-extrabold mt-6 px-6 md:px-[75px]"
-            >
-              <div class="md:max-w-[600px]">
-                <p>
-                  The Beacon ist ein Projekt von uns, Inland Code! Mit The
-                  Beacon erreichen Sie Ihre Ziele und bauen sich ein
-                  erfolgreiches und glückliches Leben auf.
-                </p>
-              </div>
-
-              <!-- NUR DIESER BUTTON WURDE ANGEPASST -->
-              <a
-                class="btn-donate text-center flex justify-center items-center"
-                href="https://inlandcode-beacon.de"
-                target="_blank"
-              >
-                Click Me
-              </a>
-
-              <div class="md:max-w-[600px]">
-                <p>
-                  Wir entwickeln The Beacon stetig weiter, um Ihnen Ihren
-                  persönlichen Weg durchs Leben so leicht wie möglich zu machen!
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
       </section>
     </div>
   </div>

@@ -4,7 +4,7 @@
     <div class="relative mx-auto border-gray-800 bg-gray-500 border-[8px] rounded-t-xl h-[172px] max-w-[301px] md:h-[294px] md:max-w-[512px] glow-box">
       <div class=" overflow-hidden h-[156px] md:h-[278px] bg-white">
         <!-- Du kannst hier dein Bild oder Inhalt einfügen -->
-         <img src="../public/images/ich_macbook.JPG" alt="">
+         <img src="../public/images/Arbeitsbild.jpeg" alt="">
       </div>
     </div>
 
