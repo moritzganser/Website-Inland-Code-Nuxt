@@ -48,8 +48,8 @@
 <div class="flex justify-center">
   <p class="text-white text-[50px] font-bold mb-[50px] mt-[250px]">Kontakte</p>
 </div>
-
-      <section class="w-full py-20 mt-0 pt-0">
+<div id="kontakte_ziel"></div>
+      <section class="w-full py-20 mt-0 pt-0 pb-[250px]">
   <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
 
     <!-- Left Text -->
